@@ -19,8 +19,25 @@
 html,
 body {
   font-family: "Outfit", Helvetica, sans-serif;
+  background-color: var(--darkest);
 }
 
+#container {
+  width: 65%;
+  height: 100vh;
+  max-width: 995px;
+  background-image: url("/assets/imgs/bg.jpg");
+  background-size: cover;
+  margin: 0 auto;
+  padding: 50px 80px;
+}
+#logo {
+  width: 150px;
+}
+
+#logo img {
+  width: 100%;
+}
 /*pg 1*/
 
 /*fine pg 1*/
