@@ -14,6 +14,7 @@
   --main-blue: rgb(33, 33, 143);
   --light-purple: rgb(188, 134, 255);
   --dark-purple: rgb(156, 81, 248);
+  --white: #ebebeb;
 }
 
 html,
@@ -30,6 +31,7 @@ body {
   background-size: cover;
   margin: 0 auto;
   padding: 50px 80px;
+  color: var(--white);
 }
 #logo {
   width: 150px;
@@ -39,7 +41,9 @@ body {
   width: 100%;
 }
 /*pg 1*/
-
+.welcome {
+  font-size: 60px;
+}
 /*fine pg 1*/
 
 /*pg 2*/
@@ -53,3 +57,7 @@ body {
 /*pg 4*/
 
 /*fine pg 4*/
+/* support class*/
+.bold {
+  font-weight: 700;
+}
