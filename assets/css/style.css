@@ -14,6 +14,8 @@
   --main-blue: rgb(33, 33, 143);
   --light-purple: rgb(188, 134, 255);
   --dark-purple: rgb(156, 81, 248);
+  --white: #ebebeb;
+  --light-blue: #00FFFF;
 }
 
 html,
@@ -31,11 +33,13 @@ header{
   width: 65%;
   height: 100vh;
   max-width: 995px;
+  min-width: 800px;
   background-image: url("/assets/imgs/bg.jpg");
   background-size: cover;
   margin: 0 auto;
   padding: 50px 80px;
   position: relative;
+  color: var(--white);
 }
 #logo {
   width: 150px;
@@ -46,7 +50,36 @@ header{
   width: 100%;
 }
 /*pg 1*/
-
+.welcome {
+  font-size: 70px;
+  line-height: 80%;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+.pink {
+color: var(--dark-purple);
+font-size: 30px;
+}
+.lista {
+  margin: 40px 30px 90px;
+  line-height: 155%;
+}
+.fakebutton {
+color: var(--white);
+text-decoration: none;
+border: 2px solid;
+padding: 15px 40px;
+font-size: 20px;
+font-weight: bold;
+float: right;
+vertical-align: middle;
+}
+.fakebutton:hover {
+  background-color: var(--light-blue);
+  color: var(--darkest-blue);
+  box-shadow: 0px 0px 40px #00FFFF;
+  border: none;
+}
 /*fine pg 1*/
 
 /*pg 2*/
@@ -114,3 +147,7 @@ footer{
 /*pg 4*/
 
 /*fine pg 4*/
+/* support class*/
+.bold {
+  font-weight: 700;
+}
