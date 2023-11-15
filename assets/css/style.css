@@ -142,11 +142,42 @@ footer{
 
 /*pg 3*/
 
+#risultati{
+  padding-top: 70px;
+  padding-bottom: 20px;
+  
+}
+
+#wrong {
+  float: inline-end;
+  padding-top: 60px;
+}
+#correct{
+  float: inline-start;
+  padding-top: 60px;
+}
+#auguri{
+  color: white;
+border: 20px solid var(--light-purple) ;
+border-radius: 150px;
+text-align: center;
+height: 250px;
+width: 250px;
+padding: 25px;
+display: inline-block;
+}
+
+.rateus{
+  margin: 0 auto;
+}
 /*fine pg 3*/
 
 /*pg 4*/
 
 /*fine pg 4*/
+
+
+
 /* support class*/
 .bold {
   font-weight: 700;
