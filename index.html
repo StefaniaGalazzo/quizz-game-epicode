@@ -13,22 +13,41 @@
           <img src="assets/imgs/epicode_logo.png" alt="epicode-logo" />
         </div>
       </header>
-      <div id="frontpage"> <!--MAIN-->
-        <h1 class="welcome">Welcome to <br><span class="bold">
-          your exam</span></h1>
+      <main>
+        <div class="frontpage">
+          <h1 class="welcome">
+            Welcome to <br /><span class="bold"> your exam</span>
+          </h1>
           <h2 class="pink">Instructions</h2>
-          <p class="instrText">We don't expect most engineers to know the answer to all of these question, so don't worry if you're unsure of a few of them.</p>
+          <p class="instrText">
+            We don't expect most engineers to know the answer to all of these
+            question, so don't worry if you're unsure of a few of them.
+          </p>
 
           <ul class="lista">
-            <li>Each question is <span class="bold">timed</span> and can only be <span class="bold">answered once.</span></li>
-            <li>changing browser tab or opening other windows will <span class="bold">invalidate the question.</span></li>
-            <li>This exam will take approx. <span class="bold">0-5 minutes.</span></li>
+            <li>
+              Each question is <span class="bold">timed</span> and can only be
+              <span class="bold">answered once.</span>
+            </li>
+            <li>
+              changing browser tab or opening other windows will
+              <span class="bold">invalidate the question.</span>
+            </li>
+            <li>
+              This exam will take approx. <span class="bold">0-5 minutes.</span>
+            </li>
           </ul>
           <div class="proceed">
-            <input type="checkbox"/><label class="bold">I promise to answer myself without help from anyone</label>
+            <div class="input-wrapper">
+              <input type="checkbox" id="start-checkbox" />
+              <label for="start-checkbox" class="bold"
+                >I promise to answer myself without help from anyone</label
+              >
+            </div>
             <a href="test.html" class="fakebutton">PROCEED</a>
           </div>
         </div>
+      </main>
     </div>
   </body>
 </html>
