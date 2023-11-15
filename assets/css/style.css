@@ -13,7 +13,7 @@
   --darkest-blue: rgb(0, 0, 60);
   --main-blue: rgb(33, 33, 143);
   --light-purple: rgb(188, 134, 255);
-  --dark-purple: rgb(156, 81, 248);
+  --dark-purple: #C2128D;
   --white: #ebebeb;
   --light-blue: #00FFFF;
 }
@@ -60,9 +60,32 @@ header{
 color: var(--dark-purple);
 font-size: 30px;
 }
+
 .lista {
   margin: 40px 30px 90px;
   line-height: 155%;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  margin-right: 10px;
+  height: 15px;
+  width: 15px;
+  border: 1px solid white;
+  border-radius: 1px;
+  cursor: pointer;
+  border: 2px solid var(--darkest-blue);
+  outline: 2px solid var(--white);
+  outline-offset: 0px;
+}
+input[type="checkbox"]:checked {
+  border: 1px solid white;
+  background-color: var(--dark-purple);
+}
+input, label {
+  margin-top: 20px;
 }
 .fakebutton {
 color: var(--white);
@@ -74,6 +97,7 @@ font-weight: bold;
 float: right;
 vertical-align: middle;
 }
+
 .fakebutton:hover {
   background-color: var(--light-blue);
   color: var(--darkest-blue);
