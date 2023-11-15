@@ -216,7 +216,8 @@ display: inline-block;
   display: flex;
   flex-direction: row-reverse; 
   padding: 20px 90px;
-}
+  margin: 10px;
+ }
 
 .starIcon {        /*ICON*/
   font-size: 50px;
@@ -225,18 +226,21 @@ display: inline-block;
   padding-inline-start: 10px;   
 }
 
+
 .starIcon::before{
   content: url(/assets/imgs/starblue.svg);
 }
-.starIcon.ativo ~ .starIcon::before{
-  content: url(/assets/imgs/star.svg);
+
+.starIcon.ativo~.starIcon::before,
+.starIcon.ativo::before {  
+  content: url(/assets/imgs/star.svg); 
+
 }
 .avaliacao:hover .starIcon::before{
   content: url(/assets/imgs/starblue.svg);
 }
-.starIcon:hover ~ .starIcon::before{
-  content: url(/assets/imgs/star.svg);
-}
+
+
 /* ---- Stelle finali ---- */
 
 /* ---- Giacomo text ---- */
