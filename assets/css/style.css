@@ -146,6 +146,46 @@ footer{
 
 /*pg 4*/
 
+/* ---- Stelle ---- */
+
+#testTesto1 {     /*H1*/
+  font-size: 50px;
+  padding-bottom: 25px;
+}
+
+#testTesto2 {       /*H2*/
+  font-size: 30px;
+  font-weight: normal;
+  padding-bottom: 25px;
+}
+
+
+.starIcon {        /*ICON*/
+  font-size: 50px;
+  display: inline;
+  cursor: pointer;  
+  padding-inline-start: 10px;
+  
+}
+
+.starIcon::before{
+  content: url(/assets/imgs/starblue.svg);
+}
+.starIcon.ativo ~ .starIcon::before{
+  content: url(/assets/imgs/star.svg);
+}
+.avaliacao:hover .starIcon::before{
+  content: url(/assets/imgs/starblue.svg);
+}
+.starIcon:hover ~ .starIcon::before{
+  content: url(/assets/imgs/star.svg);
+}
+
+
+
+/* ---- Stelle finali ---- */
+
+
 /*fine pg 4*/
 /* support class*/
 .bold {
