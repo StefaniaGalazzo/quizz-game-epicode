@@ -159,13 +159,18 @@ footer{
   padding-bottom: 25px;
 }
 
+.star{
+  text-align: center;
+  display: flex;
+  flex-direction: row-reverse; 
+  padding: 20px 90px;
+}
 
 .starIcon {        /*ICON*/
   font-size: 50px;
   display: inline;
   cursor: pointer;  
-  padding-inline-start: 10px;
-  
+  padding-inline-start: 10px;   
 }
 
 .starIcon::before{
@@ -180,10 +185,30 @@ footer{
 .starIcon:hover ~ .starIcon::before{
   content: url(/assets/imgs/star.svg);
 }
-
-
-
 /* ---- Stelle finali ---- */
+
+/* ---- Giacomo text ---- */
+
+.titoletto {
+  font-size: 22px;
+}
+
+.text {
+  width: 100%;
+  background-color: transparent;
+  padding: 10px;
+  border-style: inset;
+  border-width: 0;
+  border-bottom: 2px solid var(--light-purple);
+  margin: 30px 0px;
+  color: var(--white);
+}
+
+.text:focus {
+  outline: none;
+}
+
+/* ---- Giacomo text finali ---- */
 
 
 /*fine pg 4*/
