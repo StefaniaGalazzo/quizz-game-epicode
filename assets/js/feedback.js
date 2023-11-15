@@ -1,8 +1,9 @@
 /* Stelle */
-const stars = document.querySelectorAll('.starIcon');
-                  
+
+const stars = document.querySelectorAll('.starIcon');    
+
 document.addEventListener('click', function(el) {  
-    console.log('text');
+    console.log('text'); // click - cambiare
   const classStar = el.target.classList;
   if(!classStar.contains('ativo')){
     stars.forEach(function(star){

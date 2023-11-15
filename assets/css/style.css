@@ -230,16 +230,16 @@ display: inline-block;
 .starIcon::before{
   content: url(/assets/imgs/starblue.svg);
 }
-
 .starIcon.ativo~.starIcon::before,
-.starIcon.ativo::before {  
-  content: url(/assets/imgs/star.svg); 
-
+.starIcon.ativo::before {
+  content: url(/assets/imgs/star.svg);
 }
-.avaliacao:hover .starIcon::before{
+/*.avaliacao:hover.starIcon::before{
   content: url(/assets/imgs/starblue.svg);
+}*/
+.starIcon:hover~.starIcon::before{
+  content: url(/assets/imgs/star.svg);
 }
-
 
 /* ---- Stelle finali ---- */
 
