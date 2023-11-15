@@ -80,27 +80,6 @@ input[type="checkbox"]:checked {
 input, label {
   margin-top: 20px;
 }
-
-/* 
-input[type="checkbox"] {
-  appearance: none;
-  background-color: $mainLight;
-  margin: 0 10px 0 10px;
-
-  color: $thirdColor;
-  width: 15px;
-  height: 15px;
-  border-radius: 2px;
-  border: 2px solid $mainLight;
-  outline: 2px solid darken($thirdColor, 10);
-  outline-offset: 0px;
-}
-input[type="checkbox"]:checked {
-    background-color: $thirdColor;
-} */
-
-
-
 .fakebutton {
 color: var(--white);
 text-decoration: none;
