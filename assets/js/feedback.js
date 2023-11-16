@@ -1,19 +1,20 @@
-/* Stelle */
+// salvare il valore dell'input text in un array da mostrare in console
 
-const stars = document.querySelectorAll('.starIcon'); 
-let selectedValutazione = null;   
- 
-document.addEventListener('click', function(el) { 
-  const clickedStar = el.target;  
-  
-  if (clickedStar.classList.contains('starIcon')) {      
-    stars.forEach(function(star) {
-      star.classList.remove('attivo');  
+/* Stelle */
+const stars = document.querySelectorAll(".starIcon");
+let selectedValutazione = null;
+
+document.addEventListener("click", function (el) {
+  const clickedStar = el.target;
+
+  if (clickedStar.classList.contains("starIcon")) {
+    stars.forEach(function (star) {
+      star.classList.remove("attivo");
     });
-        
-     clickedStar.classList.add('attivo');    
-    selectedValutazione = clickedStar.getAttribute('valutazione');
-    
+
+    clickedStar.classList.add("attivo");
+    selectedValutazione = clickedStar.getAttribute("valutazione");
+
     console.log(`Valutazione selecionada: ${selectedValutazione}`);
   }
 });
