@@ -112,21 +112,12 @@ function printQuestion() {
     const answerContainer = document.querySelector("#answers");
     const btnAnswer = document.createElement("button");
     btnAnswer.classList.add("btn-answer");
-
-    // btnAnswer.innerHTML = questions[questionINDX].totAnswer.splice(
-    //   questionINDX,
-    //   1
-    // )[0];
-    // console.log(questions[0].totAnswer, "totans");
-    // console.log(
-    //   questions[questionINDX].totAnswer.splice(questionINDX, 2),
-    //   "questions[questionINDX].totAnswer.splice(questionINDX, 1)[0]"
-    // );
-    console.log(
-      questions[questionINDX].totAnswer,
-      "questions[questionINDX].totAnswer"
-    );
-    // btnAnswer.innerText = questions[questionINDX].totAnswer.split(" ");
+    let singleAnswer = [];
+    for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
+      singleAnswer.push(questions[questionINDX].totAnswer.slice(i, i + 1));
+    }
+    btnAnswer.innerHTML = singleAnswer[i][0];
+    console.log(singleAnswer[0][0], "single answer");
     answerContainer.appendChild(btnAnswer);
   }
 }
