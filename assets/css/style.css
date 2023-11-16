@@ -124,13 +124,14 @@ label.bold {
 
 /*pg 2*/
 #timer {
-  border: 13px solid var(--light-purple);
-  border-radius: 100px;
+  position: relative;
   text-align: center;
   height: 115px;
   width: 115px;
-  padding: 13px;
-  display: inline-block;
+  display: grid;
+  place-content: center;
+  border: 13px solid #ffffff47;
+  border-radius: 100px;
 }
 
 #timer p {
@@ -252,6 +253,7 @@ footer {
 }
 
 /*ICON*/
+
 .starIcon {
   font-size: 50px;
   display: inline;
@@ -307,4 +309,42 @@ footer {
 }
 .small {
   font-size: 14px;
+}
+
+/**/
+/*SOLO COUNT-DOWN*/
+#countdown {
+  color: white;
+  display: inline-block;
+  line-height: 40px;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  top: -15px;
+  right: -16px;
+  width: 120px;
+  height: 120px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 320px;
+  stroke-dashoffset: 0px;
+  /* stroke-linecap: round; */
+  stroke-width: 13px;
+  stroke: var(--light-blue);
+  fill: none;
+  animation: countdown 30s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 303px;
+  }
 }
