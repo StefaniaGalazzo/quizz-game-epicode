@@ -171,7 +171,9 @@ label.bold {
   margin: 15px;
   padding: 20px 15px;
 }
-
+.btn-answer.clicked {
+  background-image: linear-gradient(to top, rgb(125 3 111) 21%, rgb(229 0 172));
+}
 .btn-answer:hover {
   background-image: linear-gradient(to top, rgb(125 3 111) 21%, rgb(229 0 172));
 }
@@ -248,25 +250,25 @@ footer {
 .star {
   text-align: center;
   display: flex;
-  flex-direction: row-reverse; 
-  padding: 20px, auto;  
+  flex-direction: row-reverse;
+  padding: 20px, auto;
   margin: 10px;
 }
 
 .starIcon {
-  font-size: 30px; 
+  font-size: 30px;
   display: flex;
-  align-items: center; 
-  cursor: pointer;  
-  margin-right: 15px; 
+  align-items: center;
+  cursor: pointer;
+  margin-right: 15px;
 }
 
-.starIcon::before {   
+.starIcon::before {
   content: url(/assets/imgs/starblue.svg);
 }
 
-.starIcon.attivo~.starIcon::before,  
-.starIcon.attivo::before {   
+.starIcon.attivo ~ .starIcon::before,
+.starIcon.attivo::before {
   content: url(/assets/imgs/star.svg);
 }
 

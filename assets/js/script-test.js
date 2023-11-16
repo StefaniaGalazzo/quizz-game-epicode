@@ -2,6 +2,7 @@
 // allo scadere del timer se non hai risposto la risposto è una sbagliata
 // allo scadere del timer si passa alla domanda successiva
 // eventulmente dare possibilità di cambiare risp fino allo scadere del timer e affidare solo al timer il cambio della domanda
+// quando cliccko sulla domanda aggiungo un clearinterval()
 
 const questions = [
   {
@@ -103,7 +104,6 @@ let questionTitle = document.getElementById("question");
 let questionINDX = 0;
 let singleQuestion = questions[questionINDX];
 // FUNZIONI
-countDown();
 concatAnswers();
 printQuestion();
 
@@ -117,6 +117,7 @@ function concatAnswers() {
 }
 
 function printQuestion() {
+  countDown();
   questionTitle.innerText = questions[questionINDX].question;
   for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
     const answerContainer = document.querySelector("#answers");
@@ -126,22 +127,34 @@ function printQuestion() {
     sliceAnswers(singleAnswer);
     btnAnswer.innerHTML = singleAnswer[i][0];
     answerContainer.appendChild(btnAnswer);
-    //*************da qui
-    btnAnswer.addEventListener("click", () => {
-      let resultData = {
-        correctArr: [],
-        wrongArr: [],
-      };
-      if (btnAnswer.innerText === questions[questionINDX].correct_answer) {
-        resultData.correctArr.push(questions[questionINDX].correct_answer);
-        console.log("correctArr", resultData.correctArr);
-      } else {
-        resultData.wrongArr.push(btnAnswer.innerText);
-        console.log(resultData.wrongArr, "WRONG");
-      }
-    });
   }
 }
+
+function clicked() {
+  // let correct = 0
+  // let wrong = questions.length - correct;
+  //** quando clicco sulla risposta selezionata
+  // const answers = document.querySelectorAll(".btn-answer");
+  // for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
+  // let answer = questions[questionINDX].totAnswer[i][0]
+  // answer[i].onclick = ()=> {
+  // answer[i].classList.add("clicked");
+  // }
+  // if(answer[i].classList.contain('clicked')) // disabilita tutti i bottoni
+  // if (clickedAnswer) {
+  //   // verifica se la risposta corretta
+  //   const selectedAnswer = clickedAnswer.innerText;
+  //   const correctAnswer = oggetto.correct_answer;
+  //   if (clicked === correctAnswer) {
+  //    correct += 1;
+  //   }
+  //  }
+  // }
+  // questionINDX += 1;
+  // printQuestion();
+}
+
+// bottone.addEventListener("click", clicked);
 
 function sliceAnswers(array) {
   for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
@@ -153,11 +166,25 @@ function countDown() {
   let myTimer = document.getElementById("countdown");
   let countdown = 30; //se si cambia questo valore andare nel css e cambiare la durata dell'animazione dell'svg
   myTimer.innerHTML = countdown;
-  if (countdown === 0) {
-    console.log("ciao");
-  }
-  setInterval(function () {
+  setInterval(function timer() {
     countdown = --countdown <= 0 ? 30 : countdown;
     myTimer.innerHTML = countdown;
+    if (countdown == 1) {
+      questionINDX += 1;
+      // printQuestion();
+      console.log(questionINDX, "singlequestion");
+    }
   }, 1000);
 }
+// //*************da qui portare fuori in funcione clicked
+// btnAnswer.addEventListener("click", () => {
+//   console.log("event");
+//   btnAnswer.classList.toggle("clicked");
+//   if (btnAnswer.classList.contains("clicked")) {
+//     btnAnswer.disabled = true;
+//   } else {
+//     btnAnswer.disabled = false;
+//   }
+//   // if (btnAnswer.innerText === questions[questionINDX].correct_answer) {
+//   // }
+// });
