@@ -1,16 +1,19 @@
 /* Stelle */
 
-const stars = document.querySelectorAll('.starIcon');    
-
-document.addEventListener('click', function(el) {  
-    console.log('text'); // click - cambiare
-  const classStar = el.target.classList;
-  if(!classStar.contains('ativo')){
-    stars.forEach(function(star){
-      star.classList.remove('ativo');
+const stars = document.querySelectorAll('.starIcon'); 
+let selectedValutazione = null;   
+ 
+document.addEventListener('click', function(el) { 
+  const clickedStar = el.target;  
+  
+  if (clickedStar.classList.contains('starIcon')) {      
+    stars.forEach(function(star) {
+      star.classList.remove('attivo');  
     });
-
-    classStar.add('ativo');
-    console.log(el.target.getAttribute('valutazione'));
+        
+     clickedStar.classList.add('attivo');    
+    selectedValutazione = clickedStar.getAttribute('valutazione');
+    
+    console.log(`Valutazione selecionada: ${selectedValutazione}`);
   }
 });
