@@ -1,4 +1,5 @@
-// decidere se onclick on btn cambia pagina ||
+// al onclick on btn cambia pagina
+// il progredire delle domande nel footer
 // allo scadere del timer se non hai risposto la risposto è una sbagliata
 // allo scadere del timer si passa alla domanda successiva
 // eventulmente dare possibilità di cambiare risp fino allo scadere del timer e affidare solo al timer il cambio della domanda
@@ -103,10 +104,10 @@ const questions = [
 let questionTitle = document.getElementById("question");
 let questionINDX = 0;
 let singleQuestion = questions[questionINDX];
+
 // FUNZIONI
 concatAnswers();
 printQuestion();
-
 //
 
 //creo l'array delle risp totali per ogni obj, indipendente dalle funzioni (per ora)
@@ -170,9 +171,9 @@ function countDown() {
     countdown = --countdown <= 0 ? 30 : countdown;
     myTimer.innerHTML = countdown;
     if (countdown == 1) {
-      questionINDX += 1;
+      // questionINDX += 1;
       // printQuestion();
-      console.log(questionINDX, "singlequestion");
+      console.log(questionINDX, "questionINDX");
     }
   }, 1000);
 }
