@@ -1,3 +1,8 @@
+// decidere se onclick on btn cambia pagina ||
+// allo scadere del timer se non hai risposto la risposto è una sbagliata
+// allo scadere del timer si passa alla domanda successiva
+// eventulmente dare possibilità di cambiare risp fino allo scadere del timer e affidare solo al timer il cambio della domanda
+
 const questions = [
   {
     category: "Science: Computers",
@@ -99,12 +104,17 @@ let questionINDX = 0;
 let singleQuestion = questions[questionINDX];
 // FUNZIONI
 countDown();
+concatAnswers();
+printQuestion();
+
 //
 
 //creo l'array delle risp totali per ogni obj, indipendente dalle funzioni (per ora)
-questions.forEach((quest, indx) => {
-  quest.totAnswer = quest.incorrect_answers.concat(quest.correct_answer);
-});
+function concatAnswers() {
+  questions.forEach((quest) => {
+    quest.totAnswer = quest.incorrect_answers.concat(quest.correct_answer);
+  });
+}
 
 function printQuestion() {
   questionTitle.innerText = questions[questionINDX].question;
@@ -113,15 +123,31 @@ function printQuestion() {
     const btnAnswer = document.createElement("button");
     btnAnswer.classList.add("btn-answer");
     let singleAnswer = [];
-    for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
-      singleAnswer.push(questions[questionINDX].totAnswer.slice(i, i + 1));
-    }
+    sliceAnswers(singleAnswer);
     btnAnswer.innerHTML = singleAnswer[i][0];
-    console.log(singleAnswer[0][0], "single answer");
     answerContainer.appendChild(btnAnswer);
+    //*************da qui
+    btnAnswer.addEventListener("click", () => {
+      let resultData = {
+        correctArr: [],
+        wrongArr: [],
+      };
+      if (btnAnswer.innerText === questions[questionINDX].correct_answer) {
+        resultData.correctArr.push(questions[questionINDX].correct_answer);
+        console.log("correctArr", resultData.correctArr);
+      } else {
+        resultData.wrongArr.push(btnAnswer.innerText);
+        console.log(resultData.wrongArr, "WRONG");
+      }
+    });
   }
 }
-printQuestion();
+
+function sliceAnswers(array) {
+  for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
+    array.push(questions[questionINDX].totAnswer.slice(i, i + 1));
+  }
+}
 
 function countDown() {
   let myTimer = document.getElementById("countdown");
