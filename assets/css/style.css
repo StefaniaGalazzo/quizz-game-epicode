@@ -248,32 +248,29 @@ footer {
 .star {
   text-align: center;
   display: flex;
-  flex-direction: row-reverse;
-  padding: 20px 90px;
+  flex-direction: row-reverse; 
+  padding: 20px, auto;  
+  margin: 10px;
 }
-
-/*ICON*/
 
 .starIcon {
-  font-size: 50px;
-  display: inline;
-  cursor: pointer;
-  padding-inline-start: 10px;
+  font-size: 30px; 
+  display: flex;
+  align-items: center; 
+  cursor: pointer;  
+  margin-right: 15px; 
 }
 
-.starIcon::before {
+.starIcon::before {   
   content: url(/assets/imgs/starblue.svg);
 }
-.starIcon.ativo ~ .starIcon::before {
+
+.starIcon.attivo~.starIcon::before,  
+.starIcon.attivo::before {   
   content: url(/assets/imgs/star.svg);
 }
-.avaliacao:hover .starIcon::before {
-  content: url(/assets/imgs/starblue.svg);
-}
-.starIcon:hover ~ .starIcon::before {
-  content: url(/assets/imgs/star.svg);
-}
-/* ---- Stelle fine ---- */
+
+/* ---- Stelle finali ---- */
 
 .titoletto {
   font-size: 22px;
