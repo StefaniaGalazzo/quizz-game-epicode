@@ -5,67 +5,84 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-/*basic styles*/
+/*color palette*/
 :root {
   --border-padding: 10px;
   --darkest: rgb(0, 0, 5);
   --darkest-blue: rgb(0, 0, 60);
   --main-blue: rgb(33, 33, 143);
   --light-purple: rgb(188, 134, 255);
-  --dark-purple: #C2128D;
+  --dark-purple: #c2128d;
   --white: #ebebeb;
-  --light-blue: #00FFFF;
+  --light-blue: #00ffff;
 }
+/**/
 
+/*base styles*/
 html,
 body {
   font-family: "Outfit", Helvetica, sans-serif;
   background-color: var(--darkest);
 }
 
-header{
-   display: flex;
-   justify-content: space-between;
-}
-
-#container {
-  width: 65%;
-  height: 100vh;
-  max-width: 995px;
-  min-width: 800px;
-  background-image: url("/assets/imgs/bg.jpg");
-  background-size: cover;
-  margin: 0 auto;
-  padding: 50px 80px;
-  position: relative;
-  color: var(--white);
+/*header per tutte le pagine*/
+header {
+  display: flex;
+  justify-content: space-between;
 }
 #logo {
   width: 150px;
   display: inline-block;
- }
+}
 
 #logo img {
   width: 100%;
 }
+/**/
+/*end base style*/
+
+/*sfondo per tutte le pagine*/
+#container {
+  width: 68%;
+  min-height: 100vh;
+  max-width: 910px;
+  min-width: 910px;
+  background-image: url("/assets/imgs/bg.jpg");
+  background-size: cover;
+  margin: 0 auto;
+  padding: 40px 80px;
+  position: relative;
+  color: var(--white);
+}
+/**/
+
 /*pg 1*/
+.frontpage {
+  margin-top: 60px;
+}
 .welcome {
-  font-size: 70px;
-  line-height: 80%;
+  font-size: 75px;
+  line-height: 72%;
   font-weight: 300;
   margin-bottom: 50px;
 }
 .pink {
-color: var(--dark-purple);
-font-size: 30px;
+  color: var(--dark-purple);
+  font-size: 30px;
+  margin-bottom: 5px;
 }
-
+.instrText {
+  max-width: 500px;
+}
 .lista {
-  margin: 40px 30px 90px;
+  margin: 40px 30px 75px;
   line-height: 155%;
 }
-input[type="checkbox"] {
+.proceed {
+  display: flex;
+  justify-content: space-between;
+}
+#start-checkbox {
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
@@ -80,118 +97,133 @@ input[type="checkbox"] {
   outline: 2px solid var(--white);
   outline-offset: 0px;
 }
-input[type="checkbox"]:checked {
+#start-checkbox:checked {
   border: 1px solid white;
   background-color: var(--dark-purple);
 }
-input, label {
+#start-checkbox,
+label.bold {
   margin-top: 20px;
 }
 .fakebutton {
-color: var(--white);
-text-decoration: none;
-border: 2px solid;
-padding: 15px 40px;
-font-size: 20px;
-font-weight: bold;
-float: right;
-vertical-align: middle;
+  color: var(--white);
+  text-decoration: none;
+  border: 2px solid;
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .fakebutton:hover {
   background-color: var(--light-blue);
   color: var(--darkest-blue);
-  box-shadow: 0px 0px 40px #00FFFF;
+  box-shadow: 0px 0px 40px #00ffff;
   border: none;
 }
 /*fine pg 1*/
 
 /*pg 2*/
-
-
-#timer{
-color: white;
-border: 15px solid var(--light-purple) ;
-border-radius: 100px;
-text-align: center;
-height: 150px;
-width: 150px;
-padding: 20px;
-display: inline-block;
-}
-
-#timer p{
-  font-size: 10px;
-}
-
-#timer h4{
-  font-size: 50px;
-  font-weight: 300;
-  line-height: 100%;
-}
-
-main{
+#timer {
+  position: relative;
   text-align: center;
-  padding: 100px 50px;
+  height: 115px;
+  width: 115px;
+  display: grid;
+  place-content: center;
+  border: 13px solid #ffffff47;
+  border-radius: 100px;
 }
 
-#question{
+#timer p {
+  font-size: 9px;
+}
+
+#timer h4 {
+  font-size: 45px;
+  font-weight: 300;
+  line-height: 90%;
+}
+.text-center {
+  text-align: center;
+  margin-top: 50px;
+}
+.text-center h1,
+.text-right h2,
+.text-left h2 {
   font-size: 50px;
 }
+#question {
+  line-height: 100%;
+  width: 600px;
+  margin: 0 auto;
+}
 
-#answers{
+#answers {
   margin-top: 50px;
 }
 
-.btn{
-  background-color: rgba(255, 255, 255, 0.2);
+.btn-answer {
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
-  border:3px solid white;
+  /* border: 3px solid rgba(255, 255, 255, 0.212); */
   border-radius: 30px;
   width: 40%;
   margin: 15px;
   padding: 20px 15px;
 }
 
-footer{
-  color: white;
-  text-align: center;
+.btn-answer:hover {
+  background-image: linear-gradient(to top, rgb(125 3 111) 21%, rgb(229 0 172));
+}
+
+footer {
   width: 100%;
-  font-size: 20px;
   position: absolute;
   bottom: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+  font-size: 20px;
   padding: 30px;
+}
+
+#steps .pink {
+  font-size: inherit;
 }
 /*fine pg 2*/
 
 /*pg 3*/
 
-#risultati{
-  padding-top: 70px;
-  padding-bottom: 20px;
-  
+.row {
+  margin: 50px auto 80px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.text-right h2,
+.text-left h2 {
+  font-weight: normal;
+  line-height: 100%;
+}
+.auguri {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 290px;
+  width: 290px;
+  border: 35px solid var(--light-blue);
+  border-radius: 150px;
+  text-align: center;
+  padding: 30px;
 }
 
-#wrong {
-  float: inline-end;
-  padding-top: 60px;
-}
-#correct{
-  float: inline-start;
-  padding-top: 60px;
-}
-#auguri{
-  color: white;
-border: 20px solid var(--light-purple) ;
-border-radius: 150px;
-text-align: center;
-height: 250px;
-width: 250px;
-padding: 25px;
-display: inline-block;
-}
-
-.rateus{
+.rateus {
   margin: 0 auto;
 }
 /*fine pg 3*/
@@ -200,12 +232,14 @@ display: inline-block;
 
 /* ---- Stelle ---- */
 
-#testTesto1 {     /*H1*/
+#testTesto1 {
+  /*H1*/
   font-size: 50px;
   padding-bottom: 25px;
 }
 
-#testTesto2 {       /*H2*/
+#testTesto2 {
+  /*H2*/
   font-size: 30px;
   font-weight: normal;
   padding-bottom: 25px;
@@ -238,35 +272,76 @@ display: inline-block;
 
 /* ---- Stelle finali ---- */
 
-/* ---- Giacomo text ---- */
-
 .titoletto {
   font-size: 22px;
 }
 
-.text {
+.input-comment {
   width: 100%;
   background-color: transparent;
-  padding: 10px;
+  padding: 10px 30px;
   border-style: inset;
   border-width: 0;
-  border-bottom: 2px solid var(--light-purple);
+  border-bottom: 2px solid var(--dark-purple);
   margin: 30px 0px;
-  color: var(--white);
 }
 
-.text:focus {
+.input-comment:focus {
   outline: none;
 }
-
-/* ---- Giacomo text finali ---- */
-
+.info-btn {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+}
 
 /*fine pg 4*/
-
-
 
 /* support class*/
 .bold {
   font-weight: 700;
+}
+.light-blue {
+  color: var(--light-blue);
+}
+.small {
+  font-size: 14px;
+}
+
+/**/
+/*SOLO COUNT-DOWN*/
+#countdown {
+  color: white;
+  display: inline-block;
+  line-height: 40px;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  top: -15px;
+  right: -16px;
+  width: 120px;
+  height: 120px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 320px;
+  stroke-dashoffset: 0px;
+  /* stroke-linecap: round; */
+  stroke-width: 13px;
+  stroke: var(--light-blue);
+  fill: none;
+  animation: countdown 30s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 303px;
+  }
 }

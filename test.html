@@ -12,18 +12,33 @@
         <div id="logo">
           <img src="assets/imgs/epicode_logo.png" alt="epicode-logo" />
         </div>
-        <div id="timer"><p>SECONDS</p><h4>16</h4><p>REMAINING</p></div>
+        <div id="timer">
+          <p>SECONDS</p>
+          <h4 id="countdown">16</h4>
+          <p>REMAINING</p>
+          <svg>
+            <circle cx="60" cy="60" r="52"></circle>
+          </svg>
+        </div>
       </header>
       <main>
-        <h1 id="question">How can i create a checkbox in HTML?</h1>
-        <div id="answers">
-          <button class="btn">Lorem ipsum</button>
-          <button class="btn">Lorem ipsum</button>
-          <button class="btn">Lorem ipsum</button>
-          <button class="btn">Lorem ipsum</button>
+        <div class="text-center">
+          <h1 id="question">How can i create a checkbox in HTML?</h1>
+          <div id="answers">
+            <button class="btn-answer">Lorem ipsum</button>
+            <button class="btn-answer">Lorem ipsum</button>
+            <button class="btn-answer">Lorem ipsum</button>
+            <button class="btn-answer">Lorem ipsum</button>
+          </div>
         </div>
       </main>
-      <footer id="steps"><p>QUESTION</p></footer>
+      <footer>
+        <p>
+          QUESTION <span id="steps">1<span class="pink"> / 10</span></span>
+        </p>
+      </footer>
     </div>
+
+    <script src="assets/js/script-test.js"></script>
   </body>
 </html>
