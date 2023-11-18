@@ -14,32 +14,35 @@
         </div>
       </header>
 
-    <main> 
-      <div class="text-center">
-      <!-- Stelle --> 
-        <h1 id ="testTesto1">Tell us how it's going</h1>
-        <h2 id="testTesto2">From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</h2> 
-        
-        <ul class="star">                  
-          <li class="starIcon" valutazione ="10"></li>
-          <li class="starIcon" valutazione ="9"></li>
-          <li class="starIcon" valutazione ="8"></li>
-          <li class="starIcon" valutazione ="7"></li>
-          <li class="starIcon" valutazione ="6"></li>
-          <li class="starIcon" valutazione ="5"></li>
-          <li class="starIcon" valutazione ="4"></li>
-          <li class="starIcon" valutazione ="3"></li>
-          <li class="starIcon" valutazione ="2"></li>
-          <li class="starIcon attivo" valutazione ="1"></li>
-        </ul>
+      <main>
+        <div class="text-center">
+          <!-- Stelle -->
+          <h1 id="testTesto1">Tell us how it's going</h1>
+          <h2 id="testTesto2">
+            From 0 to 10, how likely are you to recommend EPICODE to a friend or
+            a colleague?
+          </h2>
 
-        <!-- Stelle finali  --> 
+          <ul class="star">
+            <li class="starIcon" valutazione="10"></li>
+            <li class="starIcon" valutazione="9"></li>
+            <li class="starIcon" valutazione="8"></li>
+            <li class="starIcon" valutazione="7"></li>
+            <li class="starIcon" valutazione="6"></li>
+            <li class="starIcon" valutazione="5"></li>
+            <li class="starIcon" valutazione="4"></li>
+            <li class="starIcon" valutazione="3"></li>
+            <li class="starIcon" valutazione="2"></li>
+            <li class="starIcon" valutazione="1"></li>
+          </ul>
+
+          <!-- Stelle finali  -->
           <div class="titoletto">
             <p>Leave us an open feedback about your experience so far</p>
           </div>
           <input
             type="text"
-            class="input-comment"
+            id="input-comment"
             placeholder="Write your comment here"
           />
           <a href="https://epicode.com/it/" class="info-btn fakebutton"
@@ -47,9 +50,8 @@
           >
         </div>
       </main>
-
     </div>
-
+    <div id="popup" class="hide"></div>
     <script src="/assets/js/feedback.js"></script>
   </body>
 </html>

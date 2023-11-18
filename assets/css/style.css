@@ -68,8 +68,10 @@ header {
 }
 .pink {
   color: var(--dark-purple);
-  font-size: 30px;
   margin-bottom: 5px;
+}
+h2.pink {
+  font-size: 30px;
 }
 .instrText {
   max-width: 500px;
@@ -112,6 +114,7 @@ label.bold {
   padding: 15px 40px;
   font-size: 20px;
   font-weight: bold;
+  background-color: transparent;
 }
 
 .fakebutton:hover {
@@ -119,6 +122,16 @@ label.bold {
   color: var(--darkest-blue);
   box-shadow: 0px 0px 40px #00ffff;
   border: none;
+}
+.fakebutton:disabled {
+  color: #ebebeb50;
+  text-decoration: none;
+  border: 2px solid;
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  box-shadow: none;
 }
 /*fine pg 1*/
 
@@ -159,7 +172,7 @@ label.bold {
 }
 
 #answers {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .btn-answer {
@@ -214,6 +227,7 @@ footer {
   line-height: 100%;
 }
 .auguri {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -224,7 +238,32 @@ footer {
   text-align: center;
   padding: 30px;
 }
-
+/*pie chart*/
+.pie {
+  /* background: conic-gradient(red 36deg, orange 36deg 170deg, yellow 170deg); */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -35px;
+  height: 290px;
+  width: 290px;
+  left: -35px;
+  z-index: 0;
+}
+.pie::after {
+  background: url("/assets/imgs/bg.jpg");
+  content: "";
+  border-radius: 250px;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 15%;
+  left: 16%;
+  background-size: 370%;
+  background-position: 56%;
+}
+/*end pie chart*/
 .rateus {
   margin: 0 auto;
 }
@@ -271,6 +310,9 @@ footer {
 .starIcon.attivo::before {
   content: url(/assets/imgs/star.svg);
 }
+.starIcon:hover {
+  content: url(/assets/imgs/star.svg);
+}
 
 /* ---- Stelle finali ---- */
 
@@ -278,7 +320,7 @@ footer {
   font-size: 22px;
 }
 
-.input-comment {
+#input-comment {
   width: 100%;
   background-color: transparent;
   padding: 10px 30px;
@@ -286,9 +328,10 @@ footer {
   border-width: 0;
   border-bottom: 2px solid var(--dark-purple);
   margin: 30px 0px;
+  color: var(--white);
 }
 
-.input-comment:focus {
+#input-comment:focus {
   outline: none;
 }
 .info-btn {
@@ -296,7 +339,25 @@ footer {
   width: fit-content;
   margin: 30px auto;
 }
-
+#popup {
+  width: fit-content;
+  min-height: 100px;
+  min-width: 100px;
+  color: var(--darkest-blue);
+  background: var(--white);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 30%;
+  left: 40%;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
 /*fine pg 4*/
 
 /* support class*/
@@ -306,10 +367,24 @@ footer {
 .light-blue {
   color: var(--light-blue);
 }
+.fucsia {
+  color: var(--dark-purple);
+}
 .small {
   font-size: 14px;
 }
+.zIndex1 {
+  /*classe usata in pg result per i testi sulla pie chart*/
+  position: relative;
+  z-index: 1;
+  top: 25%;
+  width: 66%;
+  left: 18%;
+}
 
+.mb-10px {
+  margin-bottom: 10px;
+}
 /**/
 /*SOLO COUNT-DOWN*/
 #countdown {
@@ -326,17 +401,17 @@ svg {
   right: -16px;
   width: 120px;
   height: 120px;
-  transform: rotateY(-180deg) rotateZ(-90deg);
+  transform: rotate(-90deg);
 }
 
 svg circle {
+  /* transition: 1s linear all; */
   stroke-dasharray: 320px;
-  stroke-dashoffset: 0px;
-  /* stroke-linecap: round; */
-  stroke-width: 13px;
+  stroke-dashoffset: 310px;
+  stroke-width: 14px;
   stroke: var(--light-blue);
   fill: none;
-  animation: countdown 30s linear infinite forwards;
+  /*   animation: countdown 30s linear infinite forwards; */
 }
 
 @keyframes countdown {

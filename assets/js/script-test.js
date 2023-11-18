@@ -1,9 +1,5 @@
-// al onclick on btn cambia pagina
-// il progredire delle domande nel footer
-// allo scadere del timer se non hai risposto la risposto è una sbagliata
-// allo scadere del timer si passa alla domanda successiva
-// eventulmente dare possibilità di cambiare risp fino allo scadere del timer e affidare solo al timer il cambio della domanda
-// quando cliccko sulla domanda aggiungo un clearinterval()
+// to fix:   ***************************
+// se l'utente fa scadere il tempo a ogni domanda il risultato è NaN
 
 const questions = [
   {
@@ -23,7 +19,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -100,62 +96,36 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-//creo le variabili presumibilmente globali
+
+//creo le variabili globali
 let questionTitle = document.getElementById("question");
 let questionINDX = 0;
 let singleQuestion = questions[questionINDX];
+// let myTimer = document.getElementById("countdown");
+let correct = 0;
+let wrong;
+let countdown = 30;
+let intervalId;
 
 // FUNZIONI
 concatAnswers();
 printQuestion();
 //
 
-//creo l'array delle risp totali per ogni obj, indipendente dalle funzioni (per ora)
+//creo l'array delle risp totali per ogni obj in questions
 function concatAnswers() {
   questions.forEach((quest) => {
     quest.totAnswer = quest.incorrect_answers.concat(quest.correct_answer);
   });
 }
 
-function printQuestion() {
-  countDown();
-  questionTitle.innerText = questions[questionINDX].question;
-  for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
-    const answerContainer = document.querySelector("#answers");
-    const btnAnswer = document.createElement("button");
-    btnAnswer.classList.add("btn-answer");
-    let singleAnswer = [];
-    sliceAnswers(singleAnswer);
-    btnAnswer.innerHTML = singleAnswer[i][0];
-    answerContainer.appendChild(btnAnswer);
+// genero le risposte in ordine casuale
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
-
-function clicked() {
-  // let correct = 0
-  // let wrong = questions.length - correct;
-  //** quando clicco sulla risposta selezionata
-  // const answers = document.querySelectorAll(".btn-answer");
-  // for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
-  // let answer = questions[questionINDX].totAnswer[i][0]
-  // answer[i].onclick = ()=> {
-  // answer[i].classList.add("clicked");
-  // }
-  // if(answer[i].classList.contain('clicked')) // disabilita tutti i bottoni
-  // if (clickedAnswer) {
-  //   // verifica se la risposta corretta
-  //   const selectedAnswer = clickedAnswer.innerText;
-  //   const correctAnswer = oggetto.correct_answer;
-  //   if (clicked === correctAnswer) {
-  //    correct += 1;
-  //   }
-  //  }
-  // }
-  // questionINDX += 1;
-  // printQuestion();
-}
-
-// bottone.addEventListener("click", clicked);
 
 function sliceAnswers(array) {
   for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
@@ -163,29 +133,70 @@ function sliceAnswers(array) {
   }
 }
 
+//stampo a schermo i valori dell'oggetto
+function printQuestion() {
+  countDown();
+  questionTitle.innerText = questions[questionINDX].question;
+  shuffleArray(questions[questionINDX].totAnswer);
+  const answerContainer = document.querySelector("#answers");
+  answerContainer.innerHTML = ""; // ----------printQuestion stampa le 4 risposte e si sommano sempre a quelle successive, cosi invece svuota i bottoni delle domande precedenti
+  //creazione bottoni
+  questions[questionINDX].totAnswer.forEach((answer) => {
+    const btnAnswer = document.createElement("button");
+    btnAnswer.classList.add("btn-answer");
+    //accesso diretto alle risposte possibili
+    btnAnswer.innerHTML = answer;
+    btnAnswer.onclick = () => clicked(btnAnswer); //funzione che collega il progredire delle domande
+    answerContainer.appendChild(btnAnswer);
+  });
+}
+
+function clicked(btn) {
+  //** quando clicco sulla risposta selezionata
+  if (btn.innerText === questions[questionINDX].correct_answer) {
+    correct += 1;
+    wrong = questions.length - correct;
+  } else {
+    console.log("wrong");
+  }
+  localStorage.setItem("correct", correct);
+  localStorage.setItem("wrong", wrong);
+  ProgressiveQuestion();
+}
+
+// progressione delle questions
+function ProgressiveQuestion() {
+  let stepsEl = document.getElementById("steps");
+  let steps = parseInt(stepsEl.innerHTML);
+  if (steps !== questions.length) {
+    stepsEl.innerHTML = ++steps;
+    questionINDX++;
+    printQuestion();
+  } else {
+    location.href = "result.html"; //cambio pagina
+  }
+}
+
 function countDown() {
+  let countdown = 30;
+  let circle = document.querySelector("circle");
   let myTimer = document.getElementById("countdown");
-  let countdown = 30; //se si cambia questo valore andare nel css e cambiare la durata dell'animazione dell'svg
   myTimer.innerHTML = countdown;
-  setInterval(function timer() {
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+  intervalId = setInterval(function timer() {
     countdown = --countdown <= 0 ? 30 : countdown;
+    offset = countdown * 10.15;
+    circle.style.strokeDashoffset = `${offset}`;
+    circle.style.transition = "1s linear all";
+    console.log(circle.style.strokeDashoffset);
     myTimer.innerHTML = countdown;
-    if (countdown == 1) {
-      // questionINDX += 1;
-      // printQuestion();
-      console.log(questionINDX, "questionINDX");
+    if (countdown == 0) {
+      ProgressiveQuestion();
     }
+    // if (countdown == 0 || countdown > 28) {
+    //   circle.style.strokeDashoffset = `310`;
+    // }
   }, 1000);
 }
-// //*************da qui portare fuori in funcione clicked
-// btnAnswer.addEventListener("click", () => {
-//   console.log("event");
-//   btnAnswer.classList.toggle("clicked");
-//   if (btnAnswer.classList.contains("clicked")) {
-//     btnAnswer.disabled = true;
-//   } else {
-//     btnAnswer.disabled = false;
-//   }
-//   // if (btnAnswer.innerText === questions[questionINDX].correct_answer) {
-//   // }
-// });
