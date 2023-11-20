@@ -24,10 +24,12 @@ console.log(wrong, "correct");
 init();
 function init() {
   //fallback
-  if (isNaN(correct) || isNaN(wrong) || !correct || !wrong)
+  if (isNaN(correct) || isNaN(wrong) || !correct || !wrong) {
     endGame.innerHTML =
-      "`<div class='zIndex1'>Sembra che tu debba ancora iniziare il test!</div";
-  else {
+      "<div class='zIndex1'>Sembra che qualcosa sia andato storto! Contatta l'assistenza.</div>";
+    pie.classList.remove("pie");
+  } else {
+    // pie.style.display = "block";
     correctResults.innerHTML = `${parseFloat(correctPercentage)}%`;
     wrongResults.innerHTML = `${parseFloat(incorrectPercentage)}%`;
     // con l'operatore ternario setto i valori da popolare SE l'utente ha vinto o meno
