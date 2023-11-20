@@ -8,9 +8,6 @@
 
 /*color palette*/
 :root {
-  /* --border-padding: 10px; */
-  /* --main-blue: rgb(33, 33, 143); */
-  /* --light-purple: rgb(188, 134, 255); */
   --darkest: rgb(0, 0, 5);
   --white: #ebebeb;
   --darkest-blue: rgb(0, 0, 60);
@@ -227,21 +224,7 @@ label.bold {
     var(---light-purple)
   );
 }
-/* .btn-answer::before {
-  content: "";
-  position: absolute;
-  width: 104%;
-  height: 113%;
-  top: -7%;
-  left: -2%;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(255, 255, 255) 21%,
-    rgb(229 0 172)
-  );
-  border-radius: 100px;
-  z-index: -1;
-} */
+
 footer {
   width: 100%;
   position: absolute;
@@ -357,13 +340,6 @@ footer {
 .starIcon:hover ~ .starIcon::before {
   content: url(/assets/imgs/star.svg);
 }
-/* .star {
-  text-align: center;
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 20px, auto;
-  margin: 10px;
-} */
 
 .starIcon {
   font-size: 30px;
@@ -372,20 +348,7 @@ footer {
   cursor: pointer;
   margin-right: 15px;
 }
-
-/* .starIcon::before {
-  content: url(../imgs/starblue.svg);
-} */
-
-/* .starIcon.attivo ~ .starIcon::before,
-.starIcon.attivo::before {
-  content: url(../imgs/star.svg);
-} */
-/* .starIcon:hover {
-  content: url(../imgs/star.svg);
-} */
-
-/* ---- Stelle finali ---- */
+/* -------- */
 
 .titoletto {
   font-size: 22px;
@@ -486,11 +449,4 @@ svg circle {
   /*   animation: countdown 30s linear infinite forwards; */
 }
 /* 
-@keyframes countdown {
-  from {
-    stroke-dashoffset: 0px;
-  }
-  to {
-    stroke-dashoffset: 303px;
-  }
-} */
+

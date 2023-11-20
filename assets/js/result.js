@@ -58,11 +58,6 @@ function init() {
     background = `background: conic-gradient(#c2128d ${incorrectPercentage}%, #00ffff 0deg)`;
     pie.setAttribute("style", background);
 
-    //****verifico se i miei dati arrivano correttamente!!******
-    console.log(correctPercentage, "correctPercentage");
-    console.log(incorrectPercentage, "incorrectPercentage");
-    console.log(pie.style);
-
     // svuoto il local storage quando l'utente esce dalla pagina
     clearStorageBtn.onclick = () => {
       localStorage.clear();

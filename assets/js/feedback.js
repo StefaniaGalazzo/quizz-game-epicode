@@ -21,13 +21,14 @@ document.addEventListener("click", function (el) {
 });
 
 if (input) {
-  // input.onblur = (e) => {
-  //   popup.innerHTML = `<h3>Your feedback has been sand!</h3> <p>${e.target.value}</p>`;
-  //   popup.classList.add("show");
-  //   console.log(e.target.value, "input");
-  //   input.value = "";
-  //   setTimeout(() => popup.classList.remove("show"), 2500);
-  // };
+  input.onblur = (e) => {
+    e.preventDefault();
+    let myComment = input.value;
+    result.comment = myComment;
+    console.log("il tuo feedback:", result);
+    input.value = "";
+    return result;
+  };
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();

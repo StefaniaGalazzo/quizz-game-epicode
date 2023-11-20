@@ -1,6 +1,3 @@
-// to fix:   ***************************
-// se l'utente fa scadere il tempo a ogni domanda il risultato è NaN
-
 const questions = [
   {
     category: "Science: Computers",
@@ -185,16 +182,13 @@ function countDown() {
   myTimer.innerHTML = countdown;
   if (intervalId) {
     circle.style.display = "none";
-    // console.log("siiii"), (circle.style.display = "none");
     clearInterval(intervalId);
   }
   intervalId = setInterval(function timer() {
     countdown = --countdown < 0 ? 30 : countdown;
-    // offset = countdown * 10.9;
     offset -= 10;
     offset = --offset < -326 ? 0 : offset;
     circle.style.strokeDashoffset = `${offset}`;
-    // console.log(circle.style.strokeDashoffset);
     myTimer.innerHTML = countdown;
     circle.style.display = "block";
     if (countdown == 0) {
