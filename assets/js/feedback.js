@@ -1,9 +1,8 @@
-// salvare il valore dell'input text in un array da mostrare in console
-
-/* Stelle */
+// variabili stelline
 const stars = document.querySelectorAll(".starIcon");
+let result = { feedBack: 0, comment: "" };
 let selectedValutazione = null;
-//input value
+//variabili input
 let input = document.querySelector("#input-comment");
 let popup = document.querySelector("#popup");
 
@@ -15,7 +14,9 @@ document.addEventListener("click", function (el) {
     });
     clickedStar.classList.add("attivo");
     selectedValutazione = clickedStar.getAttribute("valutazione");
-    console.log(`Valutazione selecionada: ${selectedValutazione}`);
+    result.feedBack = parseInt(selectedValutazione);
+    console.log(`la tua valutazione: ${result}`);
+    return result;
   }
 });
 
@@ -33,8 +34,12 @@ if (input) {
       popup.innerHTML = `<h3>Your feedback has been sand!</h3> <p>${e.target.value}</p>`;
       popup.classList.add("show");
       console.log(e.target.value, "input");
+      let myComment = input.value;
+      result.comment = myComment;
+      console.log("il tuo feedback:", result);
       input.value = "";
       setTimeout(() => popup.classList.remove("show"), 2500);
+      return result;
     }
   });
 }

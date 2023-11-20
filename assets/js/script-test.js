@@ -185,7 +185,7 @@ function countDown() {
   myTimer.innerHTML = countdown;
   if (intervalId) {
     circle.style.display = "none";
-    console.log("siiii"), (circle.style.display = "none");
+    // console.log("siiii"), (circle.style.display = "none");
     clearInterval(intervalId);
   }
   intervalId = setInterval(function timer() {
@@ -194,7 +194,7 @@ function countDown() {
     offset -= 10;
     offset = --offset < -326 ? 0 : offset;
     circle.style.strokeDashoffset = `${offset}`;
-    console.log(circle.style.strokeDashoffset);
+    // console.log(circle.style.strokeDashoffset);
     myTimer.innerHTML = countdown;
     circle.style.display = "block";
     if (countdown == 0) {

@@ -208,6 +208,10 @@ label.bold {
   margin: 15px;
   padding: 20px 15px;
   position: relative;
+  box-shadow: rgb(248, 248, 248) -2px -2px 3px 2px,
+    rgba(229, 0, 172, 0.007) 0px 0px 0px 4px,
+    rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
+  transition: all 0.2s;
 }
 .btn-answer.clicked {
   background-image: linear-gradient(
@@ -335,14 +339,31 @@ footer {
   font-weight: normal;
   padding-bottom: 25px;
 }
-
 .star {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 60px;
+  flex-direction: row-reverse;
+}
+.starIcon::before {
+  content: url(/assets/imgs/starblue.svg);
+}
+
+.starIcon.attivo ~ .starIcon::before,
+.starIcon.attivo::before,
+.starIcon:hover::before,
+.starIcon:hover ~ .starIcon::before {
+  content: url(/assets/imgs/star.svg);
+}
+/* .star {
   text-align: center;
   display: flex;
   flex-direction: row-reverse;
   padding: 20px, auto;
   margin: 10px;
-}
+} */
 
 .starIcon {
   font-size: 30px;
@@ -352,17 +373,17 @@ footer {
   margin-right: 15px;
 }
 
-.starIcon::before {
+/* .starIcon::before {
   content: url(../imgs/starblue.svg);
-}
+} */
 
-.starIcon.attivo ~ .starIcon::before,
+/* .starIcon.attivo ~ .starIcon::before,
 .starIcon.attivo::before {
   content: url(../imgs/star.svg);
-}
-.starIcon:hover {
+} */
+/* .starIcon:hover {
   content: url(../imgs/star.svg);
-}
+} */
 
 /* ---- Stelle finali ---- */
 
