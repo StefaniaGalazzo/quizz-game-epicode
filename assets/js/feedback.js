@@ -39,13 +39,14 @@ if (input) {
       let myComment = input.value;
       result.comment = myComment;
       console.log("il tuo feedback:", result);
-      input.value = "";
+      // input.value = "";
       setTimeout(() => popup.classList.remove("show"), 2500);
       return result;
     }
   });
 }
 btnInfo.onclick = () => {
+  let myComment = input.value;
   if (result.comment === "") {
     alert("lascia la tua opinione");
   } else {
