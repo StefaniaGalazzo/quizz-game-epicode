@@ -127,6 +127,7 @@ function shuffleArray(array) {
   }
 }
 
+// scompongo l'array delle risposte tot
 function sliceAnswers(array) {
   for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
     array.push(questions[questionINDX].totAnswer.slice(i, i + 1));
@@ -139,7 +140,7 @@ function printQuestion() {
   questionTitle.innerText = questions[questionINDX].question;
   shuffleArray(questions[questionINDX].totAnswer);
   const answerContainer = document.querySelector("#answers");
-  answerContainer.innerHTML = ""; // ----------printQuestion stampa le 4 risposte e si sommano sempre a quelle successive, cosi invece svuota i bottoni delle domande precedenti
+  answerContainer.innerHTML = ""; // ------printQuestion stampa le 4 risposte e si sommano sempre a quelle successive, cosi invece svuota i bottoni delle domande precedenti
   //creazione bottoni
   questions[questionINDX].totAnswer.forEach((answer) => {
     const btnAnswer = document.createElement("button");
@@ -185,16 +186,13 @@ function countDown() {
   myTimer.innerHTML = countdown;
   if (intervalId) {
     circle.style.display = "none";
-    // console.log("siiii"), (circle.style.display = "none");
     clearInterval(intervalId);
   }
   intervalId = setInterval(function timer() {
     countdown = --countdown < 0 ? 30 : countdown;
-    // offset = countdown * 10.9;
     offset -= 10;
     offset = --offset < -326 ? 0 : offset;
     circle.style.strokeDashoffset = `${offset}`;
-    // console.log(circle.style.strokeDashoffset);
     myTimer.innerHTML = countdown;
     circle.style.display = "block";
     if (countdown == 0) {

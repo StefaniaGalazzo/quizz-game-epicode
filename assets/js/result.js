@@ -24,14 +24,13 @@ console.log(wrong, "correct");
 init();
 function init() {
   //fallback
-  if (isNaN(correct) || isNaN(wrong) || !correct || !wrong) {
+  if ((isNaN(correct) && isNaN(wrong)) || (!correct && !wrong)) {
     endGame.innerHTML =
       "<div class='zIndex1'>Sembra che qualcosa sia andato storto! Contatta l'assistenza.</div>";
     pie.classList.remove("pie");
   } else {
-    // pie.style.display = "block";
-    correctResults.innerHTML = `${parseFloat(correctPercentage)}%`;
-    wrongResults.innerHTML = `${parseFloat(incorrectPercentage)}%`;
+    correctResults.innerHTML = `${correctPercentage}%`;
+    wrongResults.innerHTML = `${incorrectPercentage}%`;
     // con l'operatore ternario setto i valori da popolare SE l'utente ha vinto o meno
     endGame.innerHTML =
       correctPercentage >= incorrectPercentage
@@ -55,7 +54,7 @@ function init() {
    </div>`;
     correctQuestionNum.innerHTML = `${correct}/${total} questions`;
     wrongQuestionNum.innerHTML = `${wrong}/${total} questions`;
-    background = `background: conic-gradient(#c2128d ${incorrectPercentage}%, #00ffff 0deg)`;
+    background = `background: conic-gradient(#d20094 ${incorrectPercentage}%, #00ffff 0deg)`;
     pie.setAttribute("style", background);
 
     //****verifico se i miei dati arrivano correttamente!!******

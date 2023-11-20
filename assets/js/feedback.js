@@ -1,5 +1,6 @@
 // variabili stelline
 const stars = document.querySelectorAll(".starIcon");
+let btnInfo = document.querySelector(".info-btn");
 let result = { feedBack: 0, comment: "" };
 let selectedValutazione = null;
 //variabili input
@@ -21,17 +22,10 @@ document.addEventListener("click", function (el) {
 });
 
 if (input) {
-  // input.onblur = (e) => {
-  //   popup.innerHTML = `<h3>Your feedback has been sand!</h3> <p>${e.target.value}</p>`;
-  //   popup.classList.add("show");
-  //   console.log(e.target.value, "input");
-  //   input.value = "";
-  //   setTimeout(() => popup.classList.remove("show"), 2500);
-  // };
   input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      popup.innerHTML = `<h3>Your feedback has been sand!</h3> <p>${e.target.value}</p>`;
+      popup.innerHTML = `<h3>Your feedback has been sent!</h3> <p>${e.target.value}</p>`;
       popup.classList.add("show");
       console.log(e.target.value, "input");
       let myComment = input.value;
@@ -43,3 +37,15 @@ if (input) {
     }
   });
 }
+btnInfo.onclick = () => {
+  if (input.value === "") {
+    alert("lascia la tua opinione");
+  } else {
+    let myComment = input.value;
+    result.comment = myComment;
+    console.log(result, "result");
+    input.value = "";
+    location.href = "https://epicode.com/it/";
+  }
+  return result;
+};
