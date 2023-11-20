@@ -124,6 +124,7 @@ function shuffleArray(array) {
   }
 }
 
+// scompongo l'array delle risposte tot
 function sliceAnswers(array) {
   for (let i = 0; i < questions[questionINDX].totAnswer.length; i++) {
     array.push(questions[questionINDX].totAnswer.slice(i, i + 1));
@@ -136,7 +137,7 @@ function printQuestion() {
   questionTitle.innerText = questions[questionINDX].question;
   shuffleArray(questions[questionINDX].totAnswer);
   const answerContainer = document.querySelector("#answers");
-  answerContainer.innerHTML = ""; // ----------printQuestion stampa le 4 risposte e si sommano sempre a quelle successive, cosi invece svuota i bottoni delle domande precedenti
+  answerContainer.innerHTML = ""; // ------printQuestion stampa le 4 risposte e si sommano sempre a quelle successive, cosi invece svuota i bottoni delle domande precedenti
   //creazione bottoni
   questions[questionINDX].totAnswer.forEach((answer) => {
     const btnAnswer = document.createElement("button");

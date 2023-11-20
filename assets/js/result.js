@@ -24,21 +24,20 @@ console.log(wrong, "correct");
 init();
 function init() {
   //fallback
-  if (isNaN(correct) || isNaN(wrong) || !correct || !wrong) {
+  if ((isNaN(correct) && isNaN(wrong)) || (!correct && !wrong)) {
     endGame.innerHTML =
       "<div class='zIndex1'>Sembra che qualcosa sia andato storto! Contatta l'assistenza.</div>";
     pie.classList.remove("pie");
   } else {
-    // pie.style.display = "block";
-    correctResults.innerHTML = `${parseFloat(correctPercentage)}%`;
-    wrongResults.innerHTML = `${parseFloat(incorrectPercentage)}%`;
+    correctResults.innerHTML = `${correctPercentage}%`;
+    wrongResults.innerHTML = `${incorrectPercentage}%`;
     // con l'operatore ternario setto i valori da popolare SE l'utente ha vinto o meno
     endGame.innerHTML =
       correctPercentage >= incorrectPercentage
         ? `<div class='zIndex1'>
-    <p class="bold">
+    <p class="bold mb-20px">
         Congratulations <br />
-        <span class="light-blue mb-10px">You passed the exam!</span>
+        <span class="light-blue">You passed the exam!</span>
     </p>
     <p id="end-specifics" class="small">
          We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)
@@ -47,7 +46,7 @@ function init() {
         : `<div class='zIndex1'>
      <p class="bold">
          Oh no! <br />
-         <span class="fucsia mb-10px">You didn't passed the exam!</span>
+         <span class="fucsia mb-20px">You didn't passed the exam!</span>
      </p>
      <p id="end-specifics" class="small">
         We are sorry but you will not have access to our course!
@@ -55,7 +54,7 @@ function init() {
    </div>`;
     correctQuestionNum.innerHTML = `${correct}/${total} questions`;
     wrongQuestionNum.innerHTML = `${wrong}/${total} questions`;
-    background = `background: conic-gradient(#c2128d ${incorrectPercentage}%, #00ffff 0deg)`;
+    background = `background: conic-gradient(#d20094 ${incorrectPercentage}%, #00ffff 0deg)`;
     pie.setAttribute("style", background);
 
     // svuoto il local storage quando l'utente esce dalla pagina
