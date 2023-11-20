@@ -1,6 +1,3 @@
-// to fix:   ***************************
-// se l'utente fa scadere il tempo a ogni domanda il risultato è NaN
-
 const questions = [
   {
     category: "Science: Computers",

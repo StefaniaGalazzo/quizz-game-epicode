@@ -22,7 +22,15 @@ document.addEventListener("click", function (el) {
 });
 
 if (input) {
-  input.addEventListener("keypress", (e) => {
+  input.onblur = (e) => {
+    e.preventDefault();
+    let myComment = input.value;
+    result.comment = myComment;
+    console.log("il tuo feedback:", result);
+    input.value = "";
+    return result;
+  };
+input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       popup.innerHTML = `<h3>Your feedback has been sent!</h3> <p>${e.target.value}</p>`;
