@@ -47,7 +47,7 @@ header {
   min-height: 100vh;
   max-width: 910px;
   min-width: 910px;
-  background-image: url("/assets/imgs/bg.jpg");
+  background-image: url("../imgs/bg.jpg");
   background-size: cover;
   margin: 0 auto;
   padding: 40px 80px;
@@ -185,6 +185,7 @@ label.bold {
   width: 40%;
   margin: 15px;
   padding: 20px 15px;
+  position: relative;
 }
 .btn-answer.clicked {
   background-image: linear-gradient(to top, rgb(125 3 111) 21%, rgb(229 0 172));
@@ -192,7 +193,21 @@ label.bold {
 .btn-answer:hover {
   background-image: linear-gradient(to top, rgb(125 3 111) 21%, rgb(229 0 172));
 }
-
+/* .btn-answer::before {
+  content: "";
+  position: absolute;
+  width: 104%;
+  height: 113%;
+  top: -7%;
+  left: -2%;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255) 21%,
+    rgb(229 0 172)
+  );
+  border-radius: 100px;
+  z-index: -1;
+} */
 footer {
   width: 100%;
   position: absolute;
@@ -254,7 +269,7 @@ footer {
   z-index: 0;
 }
 .pie::after {
-  background: url("/assets/imgs/bg.jpg");
+  background: url("../imgs/bg.jpg");
   content: "";
   border-radius: 250px;
   position: absolute;
@@ -305,15 +320,15 @@ footer {
 }
 
 .starIcon::before {
-  content: url(/assets/imgs/starblue.svg);
+  content: url(../imgs/starblue.svg);
 }
 
 .starIcon.attivo ~ .starIcon::before,
 .starIcon.attivo::before {
-  content: url(/assets/imgs/star.svg);
+  content: url(../imgs/star.svg);
 }
 .starIcon:hover {
-  content: url(/assets/imgs/star.svg);
+  content: url(../imgs/star.svg);
 }
 
 /* ---- Stelle finali ---- */
@@ -407,15 +422,16 @@ svg {
 }
 
 svg circle {
-  /* transition: 1s linear all; */
-  stroke-dasharray: 320px;
-  stroke-dashoffset: 310px;
+  display: block;
+  transition: 1s linear all;
+  stroke-dasharray: 327;
+  /* stroke-dashoffset: 0; */
   stroke-width: 14px;
   stroke: var(--light-blue);
   fill: none;
   /*   animation: countdown 30s linear infinite forwards; */
 }
-
+/* 
 @keyframes countdown {
   from {
     stroke-dashoffset: 0px;
@@ -423,4 +439,4 @@ svg circle {
   to {
     stroke-dashoffset: 303px;
   }
-}
+} */

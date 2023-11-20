@@ -179,24 +179,26 @@ function ProgressiveQuestion() {
 
 function countDown() {
   let countdown = 30;
+  let offset = 0;
   let circle = document.querySelector("circle");
   let myTimer = document.getElementById("countdown");
   myTimer.innerHTML = countdown;
   if (intervalId) {
+    circle.style.display = "none";
+    console.log("siiii"), (circle.style.display = "none");
     clearInterval(intervalId);
   }
   intervalId = setInterval(function timer() {
-    countdown = --countdown <= 0 ? 30 : countdown;
-    offset = countdown * 10.15;
+    countdown = --countdown < 0 ? 30 : countdown;
+    // offset = countdown * 10.9;
+    offset -= 10;
+    offset = --offset < -326 ? 0 : offset;
     circle.style.strokeDashoffset = `${offset}`;
-    circle.style.transition = "1s linear all";
     console.log(circle.style.strokeDashoffset);
     myTimer.innerHTML = countdown;
+    circle.style.display = "block";
     if (countdown == 0) {
       ProgressiveQuestion();
     }
-    // if (countdown == 0 || countdown > 28) {
-    //   circle.style.strokeDashoffset = `310`;
-    // }
   }, 1000);
 }
