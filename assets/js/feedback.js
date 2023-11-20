@@ -30,7 +30,7 @@ if (input) {
     input.value = "";
     return result;
   };
-input.addEventListener("keypress", (e) => {
+  input.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       popup.innerHTML = `<h3>Your feedback has been sent!</h3> <p>${e.target.value}</p>`;
@@ -46,10 +46,9 @@ input.addEventListener("keypress", (e) => {
   });
 }
 btnInfo.onclick = () => {
-  if (input.value === "") {
+  if (result.comment === "") {
     alert("lascia la tua opinione");
   } else {
-    let myComment = input.value;
     result.comment = myComment;
     console.log(result, "result");
     input.value = "";
