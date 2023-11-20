@@ -36,9 +36,9 @@ function init() {
     endGame.innerHTML =
       correctPercentage >= incorrectPercentage
         ? `<div class='zIndex1'>
-    <p class="bold">
+    <p class="bold mb-20px">
         Congratulations <br />
-        <span class="light-blue mb-10px">You passed the exam!</span>
+        <span class="light-blue">You passed the exam!</span>
     </p>
     <p id="end-specifics" class="small">
          We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)
@@ -47,7 +47,7 @@ function init() {
         : `<div class='zIndex1'>
      <p class="bold">
          Oh no! <br />
-         <span class="fucsia mb-10px">You didn't passed the exam!</span>
+         <span class="fucsia mb-20px">You didn't passed the exam!</span>
      </p>
      <p id="end-specifics" class="small">
         We are sorry but you will not have access to our course!
