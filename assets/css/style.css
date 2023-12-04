@@ -346,14 +346,14 @@ footer {
   flex-direction: row-reverse;
 }
 .starIcon::before {
-  content: url(/assets/imgs/starblue.svg);
+  content: url("../imgs/starblue.svg");
 }
 
 .starIcon.attivo ~ .starIcon::before,
 .starIcon.attivo::before,
 .starIcon:hover::before,
 .starIcon:hover ~ .starIcon::before {
-  content: url(/assets/imgs/star.svg);
+  content: url("../imgs/star.svg");
 }
 
 .starIcon {
@@ -466,5 +466,3 @@ svg circle {
   fill: none;
   /*   animation: countdown 30s linear infinite forwards; */
 }
-/* 
-
